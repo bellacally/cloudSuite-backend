@@ -1,0 +1,23 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  available_date: MyString
+  price_jet: MyString
+  location: MyString
+  model: MyString
+  photo: MyString
+  description: MyString
+  capacity_of_passengers: MyString
+  category: MyString
+  manufactory: MyString
+
+two:
+  available_date: MyString
+  price_jet: MyString
+  location: MyString
+  model: MyString
+  photo: MyString
+  description: MyString
+  capacity_of_passengers: MyString
+  category: MyString
+  manufactory: MyString
