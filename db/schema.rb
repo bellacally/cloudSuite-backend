@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2018_11_20_034535) do
     t.bigint "jet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "start_time"
+    t.integer "end_time"
     t.index ["jet_id"], name: "index_reservations_on_jet_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
