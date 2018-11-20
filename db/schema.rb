@@ -10,13 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_023329) do
-
+ActiveRecord::Schema.define(version: 2018_11_20_034535) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "jets", force: :cascade do |t|
-    t.string "available_date"
     t.string "price_jet"
     t.string "location"
     t.string "model"
@@ -28,6 +26,8 @@ ActiveRecord::Schema.define(version: 2018_11_20_023329) do
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "available_start_date"
+    t.string "available_end_date"
     t.index ["user_id"], name: "index_jets_on_user_id"
   end
 
