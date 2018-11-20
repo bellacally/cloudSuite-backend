@@ -12,4 +12,7 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  # add login path
+  post '/login', to: 'login#login'
 end
