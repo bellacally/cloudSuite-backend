@@ -8,10 +8,10 @@
 
 puts "Clearing Up DB"
 
+Review.delete_all
+Reservation.delete_all
 Jet.delete_all
 User.delete_all
-Reservation.delete_all
-Review.delete_all
 
 puts "Creating New DB for users"
 
