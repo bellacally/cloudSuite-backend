@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     end
   end
 
-  root to: 'api/v1/jets#index'
+
+  # add login path
+  post 'login', to: 'login#login'
 end
