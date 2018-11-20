@@ -1,4 +1,5 @@
 class Api::V1::JetsController < Api::V1::BaseController
+  # tested all the api in postman, should work lol
   skip_before_action :verify_authenticity_token
   before_action :find_jet, only: [:show, :update, :destroy]
 
