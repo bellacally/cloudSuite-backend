@@ -38,6 +38,9 @@ gem 'jbuilder', '~> 2.5'
 # dotenv
 gem 'dotenv-rails', groups: [:development, :test]
 
+# pry-byebug
+gem 'pry-byebug'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 
