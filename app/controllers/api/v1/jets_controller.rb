@@ -22,6 +22,17 @@ class Api::V1::JetsController < Api::V1::BaseController
     end
   end
 
+  def update
+    # frontend should set the validation(the edit button), so no logic here
+    if @restaurant.update(restaurant_params)
+      # return created object, for validation or added status
+      render :show
+    else
+      # return error message
+      render_error
+    end
+  end
+
   private
 
   def jet_params
