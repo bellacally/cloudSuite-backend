@@ -20,7 +20,7 @@ class Api::V1::UsersController < Api::V1::BaseController
   private
 
   def user_params
-    params.require(:user).permit(:customized_request, :status, :start_date, :end_date, :destination, :number_of_passengers, :passenger_identifications, :total_price, :start_time, :end_time)
+    params.require(:user).permit(:identification, :payment_method, :name, :email, :phone_number)
   end
 
   def find_user
