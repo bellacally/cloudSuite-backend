@@ -8,10 +8,14 @@
 
 puts "Clearing Up DB"
 
-Jet.destroy_all
-
+Jet.delete_all
+User.delete_all
+Reservation.delete_all
+Review.delete_all
 
 puts "Creating New DB for users"
+
+User.create(email: "test@gmail.com", name: "test")
 
 5.times do
   User.create(email: Faker::Internet.email, name: Faker::Internet.username)
@@ -28,10 +32,24 @@ category = ['short-range', 'medium-rang', 'long-range'].sample
 model = ['Avro RJ70', 'Beechjet 400A', 'Premier 1'].sample
 manufactory = ['Boeing', 'Beechcraft', 'Cesna', 'Gulfstream'].sample
 capacity_of_passengers = ['4', '8', '16', '12'].sample
-user_id = ['1', '2', '3', '4', '5'].sample
 
 7.times do
-  Jet.create(location: location, model: model, price_jet: price, category: category, manufactory: manufactory, capacity_of_passengers: capacity_of_passengers, available_start_date: available_start_date, available_end_date: available_end_date, user_id: user_id)
+  j = Jet.new(location: location, model: model, price_jet: price, category: category, manufactory: manufactory, capacity_of_passengers: capacity_of_passengers, available_start_date: available_start_date, available_end_date: available_end_date)
+  j.user = User.first
+  j.save
 end
 
 puts "Created #{Jet.count} Jets"
+
+r = Reservation.new(customized_request: "test", status: "true")
+r.user = User.first
+r.jet = Jet.first
+r.save
+
+puts "Created #{Reservation.count} reservations"
+
+review = Review.new(content: "test", rating: 5)
+review.reservation = Reservation.first
+review.save
+
+puts "Created #{Review.count} Reviews"
