@@ -40,3 +40,16 @@ capacity_of_passengers = ['4', '8', '16', '12'].sample
 end
 
 puts "Created #{Jet.count} Jets"
+
+r = Reservation.new(customized_request: "test", status: "true")
+r.user = User.first
+r.jet = Jet.first
+r.save
+
+puts "Created #{Reservation.count} reservations"
+
+review = Review.new(content: "test", rating: 5)
+review.reservation = Reservation.first
+review.save
+
+puts "Created #{Review.count} Reviews"
