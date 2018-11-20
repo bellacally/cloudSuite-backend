@@ -1,6 +1,6 @@
 class Api::V1::JetsController < Api::V1::BaseController
   skip_before_action :verify_authenticity_token
-  before_action :find_jet, only: [:show]
+  before_action :find_jet, only: [:show, :update, :destroy]
 
   def index
     @jets = Jet.all
@@ -24,13 +24,19 @@ class Api::V1::JetsController < Api::V1::BaseController
 
   def update
     # frontend should set the validation(the edit button), so no logic here
-    if @restaurant.update(restaurant_params)
+    if @jet.update(jet_params)
       # return created object, for validation or added status
       render :show
     else
       # return error message
       render_error
     end
+  end
+
+  def destroy
+    @jet.destroy
+    # no render so no added to status:, so use head to add stauts to head (no content)
+    head :no_content
   end
 
   private
