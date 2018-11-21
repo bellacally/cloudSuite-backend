@@ -17,7 +17,9 @@ class Api::V1::JetsController < Api::V1::BaseController
     @jet.user = @user
     if @jet.save
       # return created object, for validation or added status (created 20X)
-      render :show, status: :created
+      render json: {
+        id: @jet.id
+      }
     else
       render_error
     end
@@ -43,7 +45,7 @@ class Api::V1::JetsController < Api::V1::BaseController
   private
 
   def jet_params
-    params.require(:jet).permit(:location, :model, :photo, :description, :capacity_of_passengers, :category, :manufactory, :user_id, :available_start_date, :available_end_date)
+    params.require(:jet).permit(:price_jet, :location, :model, :photo, :description, :capacity_of_passengers, :category, :manufactory, :user_id, :available_start_date, :available_end_date)
   end
 
   def user_params
