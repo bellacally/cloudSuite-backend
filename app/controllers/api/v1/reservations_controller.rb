@@ -7,6 +7,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def create
+
     # pass current user in json format from MP
     @user = User.find(user_params)
     @jet = Jet.find(params[:jet_id])
@@ -46,7 +47,8 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def user_params
-    params[:user][:id]
+    #params[:user][:id]
+    1
   end
 
   def find_reservation
