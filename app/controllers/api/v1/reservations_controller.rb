@@ -47,8 +47,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def user_params
-    #params[:user][:id]
-    1
+    params[:user][:id]
   end
 
   def find_reservation
