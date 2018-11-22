@@ -18,7 +18,9 @@ class Api::V1::ReservationsController < Api::V1::BaseController
       # return created object, for validation or added status (created 20X)
       render :show, status: :created
     else
-      render_error
+      render json: {
+        jet_id: params[:jet_id]
+      }
     end
   end
 
