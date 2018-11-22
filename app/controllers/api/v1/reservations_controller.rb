@@ -11,6 +11,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
     @user = User.find(user_params)
     @jet = Jet.find(params[:jet_id])
     @reservation = Reservation.new(reservation_params)
+    @reservation.total_price = @jet.price_jet * (@reservation.end_date - @reservation.start_date)
     @reservation.user = @user
     @reservation.jet = @jet
     if @reservation.save
