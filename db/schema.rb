@@ -10,51 +10,49 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_20_034535) do
+ActiveRecord::Schema.define(version: 2018_11_22_042714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "jets", force: :cascade do |t|
-    t.string "price_jet"
+    t.integer "price_jet"
     t.string "location"
     t.string "model"
     t.string "photo"
-    t.string "description"
-    t.string "capacity_of_passengers"
-    t.string "category"
+    t.text "description"
+    t.integer "capacity_of_passengers"
     t.string "manufactory"
     t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "available_start_date"
-    t.string "available_end_date"
+    t.date "available_start_date"
+    t.date "available_end_date"
     t.index ["user_id"], name: "index_jets_on_user_id"
   end
 
   create_table "reservations", force: :cascade do |t|
-    t.string "customized_request"
-    t.string "status"
-    t.string "start_date"
-    t.string "end_date"
+    t.text "customized_request"
+    t.boolean "status"
+    t.date "start_date"
+    t.date "end_date"
     t.string "destination"
-    t.string "number_of_passengers"
+    t.integer "number_of_passengers"
     t.string "passenger_identifications"
-    t.string "total_price"
+    t.float "total_price"
     t.bigint "user_id"
     t.bigint "jet_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "start_time"
-    t.integer "end_time"
+    t.time "start_time"
+    t.time "end_time"
     t.index ["jet_id"], name: "index_reservations_on_jet_id"
     t.index ["user_id"], name: "index_reservations_on_user_id"
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "content"
+    t.text "content"
     t.string "rating"
-    t.string "photo"
     t.bigint "reservation_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
