@@ -7,6 +7,11 @@ class Api::V1::UsersController < Api::V1::BaseController
     @user.reservations.each do |r|
       r.done?
     end
+    @user.jets.each do |j|
+      j.reservations.each do |r|
+        r.done?
+      end
+    end
   end
 
   def update
