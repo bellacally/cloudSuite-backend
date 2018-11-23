@@ -5,6 +5,9 @@ class Reservation < ApplicationRecord
 
   def done?
     if self.end_date < Time.now
-
+      self.status = true
+    else
+      self.status = false
+    end
   end
 end

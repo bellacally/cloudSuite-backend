@@ -4,6 +4,9 @@ class Api::V1::UsersController < Api::V1::BaseController
   before_action :find_user, only: [:show, :update]
 
   def show
+    @user.reservations.each do |r|
+      r.done?
+    end
   end
 
   def update
