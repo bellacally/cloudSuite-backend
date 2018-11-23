@@ -3,7 +3,10 @@ class Api::V1::ReviewsController < Api::V1::BaseController
 
   def create
     @reservation = Reservation.find(params[:reservation_id])
+
+
     @review = Review.new(review_params)
+    @review.reservation = @reservation
     if @review.save
         render json: {
           review: @review
@@ -19,7 +22,7 @@ class Api::V1::ReviewsController < Api::V1::BaseController
   end
 
   def render_error
-    render json: { errors: @jet.errors.full_messages },
+    render json: { errors: @review.errors.full_messages },
       status: :unprocessable_entity
   end
 end
