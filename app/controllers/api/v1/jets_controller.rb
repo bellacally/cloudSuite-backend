@@ -6,19 +6,13 @@ class Api::V1::JetsController < Api::V1::BaseController
   def index
     sql_query = ""
     if params[:passengers].present?
-      sql_query += "\
-      capacity_of_passengers > :passengers \
-      "
+      sql_query += "capacity_of_passengers > :passengers "
     end
     if params[:location].present?
-      sql_query += "location ILIKE :location \
-      "
+      sql_query += "OR location ILIKE :location "
     end
     if params[:start_date].present?
-      sql_query += "
-      available_start_date <= :start_date \
-      available_end_date > :start_date \
-      "
+      sql_query += "OR available_start_date <= :start_date OR available_end_date > :start_date "
     end
       p sql_query
       @jets = Jet.where(sql_query, passengers: params[:passengers], location: params[:location], start_date: params[:start_date])
