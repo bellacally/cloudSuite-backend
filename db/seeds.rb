@@ -22,14 +22,13 @@ User.create(email: "test@gmail.com", name: "test")
   price = ['15', '5', '6', '75', '50', '60', '18', '22', '44'].sample
   location = ['Beijing China Airport', 'Beijing Nanyuan Airport', 'Shenzhen Bao’an International', 'Zhuhai Jinwan Airport', 'Shenzhen Bao’an International', 'Hong Kong International', 'Shanghai Hongqiao International', 'Shanghai Pudong International', 'Hangzhou Xiaoshan International',
   'Lijian Sanyi Airport', ' Guangzhou Baiyun International', 'Macau International'].sample
-  category = ['short-range', 'medium-rang', 'long-range'].sample
   model = ['Avro RJ70', 'Beechjet 400A', 'Premier 1'].sample
   manufactory = ['Boeing', 'Beechcraft', 'Cesna', 'Gulfstream'].sample
   capacity_of_passengers = ['4', '8', '16', '12'].sample
   rating = [1, 2, 3, 4, 5].sample
 
   user = User.create(email: Faker::Internet.email, name: Faker::Internet.username)
-  jet = Jet.new(location: location, model: model, price_jet: price, category: category, manufactory: manufactory, capacity_of_passengers: capacity_of_passengers, available_start_date: available_start_date, available_end_date: available_end_date)
+  jet = Jet.new(location: location, model: model, price_jet: price, manufactory: manufactory, capacity_of_passengers: capacity_of_passengers, available_start_date: available_start_date, available_end_date: available_end_date)
   jet.user = user
   jet.save
   reservation = Reservation.new(customized_request: Faker::HarryPotter.quote, status: "true")

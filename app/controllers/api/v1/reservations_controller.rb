@@ -7,6 +7,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
   end
 
   def create
+
     # pass current user in json format from MP
     @user = User.find(user_params)
     @jet = Jet.find(params[:jet_id])
@@ -18,9 +19,7 @@ class Api::V1::ReservationsController < Api::V1::BaseController
       # return created object, for validation or added status (created 20X)
       render :show, status: :created
     else
-      render json: {
-        jet_id: params[:jet_id]
-      }
+      render_error
     end
   end
 
