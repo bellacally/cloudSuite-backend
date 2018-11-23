@@ -45,7 +45,7 @@ class Api::V1::JetsController < Api::V1::BaseController
   private
 
   def jet_params
-    params.require(:jet).permit(:price_jet, :location, :model, :photo, :description, :capacity_of_passengers, :category, :manufactory, :user_id, :available_start_date, :available_end_date)
+    params.require(:jet).permit(:avatarurl, :price_jet, :location, :model, :photo, :description, :capacity_of_passengers, :category, :manufactory, :user_id, :available_start_date, :available_end_date)
   end
 
   def user_params

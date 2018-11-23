@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_22_042714) do
+ActiveRecord::Schema.define(version: 2018_11_23_020622) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2018_11_22_042714) do
     t.datetime "updated_at", null: false
     t.date "available_start_date"
     t.date "available_end_date"
+    t.string "avatarurl"
     t.index ["user_id"], name: "index_jets_on_user_id"
   end
 
